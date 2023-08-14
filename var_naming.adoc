@@ -1,0 +1,58 @@
+= Именование переменных
+:source-language: yaml
+
+== default
+
+Имена переменных должны содержать префикс `role_name_` (полное или сокращенное)
+
+.Пример 1
+----
+base_ntp_pool: ru   # role_name is base
+
+ga_exclude_users: []  # role_name is google_authenticator
+----
+
+[sidebar]
+Необходимо для исключения возможных конфликтов переменных с одинаковыми именами из разных ролей.
+
+== set_fact
+
+Имена переменных, определяемых внутри роли через `set_fact: {}` или `vars: {}`, должны содержать префикс `\_role_name_` (подчеркивание)
+
+.Пример 2
+----
+- name: Set some fact
+  set_fact:
+    _base_new_fact: new string
+
+- name: Some tasks included
+  include_tasks:
+    file: foo.yml
+  vars:
+    _base_foo_param: bar
+
+- name: Some loop defined
+  module:
+    parameter: "{{ _base_ntp_server }}"
+  loop: "{{ base_ntp_servers }}"
+  loop_control:
+    loop_var: _base_ntp_server
+----
+
+[sidebar]
+Используется для визуального выделения переменных, определяемых внутри роли.
+
+== register
+
+Имена регистровых переменных должны содержать префикс `\__role_name_` (двойное подчеркивание)
+
+.Пример 3
+----
+- name: Set some register
+  module:
+    parameter: value
+  register: __base_new_result
+----
+
+[sidebar]
+Используется для визуального выделения регистровых переменных.
