@@ -1,7 +1,6 @@
-# Плохие подходы в работе с Ansible
-
-Набор билетов для Руководства по оформлению манифестов Ansible в Southbridge.
+= Методические рекомендации по разработке манифестов Ansible
 
 .Оглавление
-. link:var_naming.adoc[]
-. link:func_decomp.adoc[]
+. link:var_naming.adoc[Именование переменных]
+. link:func_decomp.adoc[Функциональная декомпозиция]
+. link:linearity.adoc[Линейное выполнение]
