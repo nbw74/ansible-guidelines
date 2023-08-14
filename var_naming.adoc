@@ -1,6 +1,7 @@
 = Именование переменных
 :source-language: yaml
 :toc: left
+:toc-title: Оглавление
 
 == default
 

@@ -3,6 +3,5 @@
 Набор билетов для Руководства по оформлению манифестов Ansible в Southbridge.
 
 .Оглавление
-====
 . link:var_naming.adoc
-====
+. link:func_decomp.adoc
